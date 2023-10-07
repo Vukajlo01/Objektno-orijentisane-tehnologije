@@ -1,0 +1,43 @@
+﻿<Window x:Class="Projekat3.DodajRadnikWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekat3"
+        mc:Ignorable="d"
+        Title="DodajRadnikWindow" Height="230" Width="300">
+    <Border Padding="5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="6">
+                <TextBlock Text="Ime:" Margin="0 0 0 0"></TextBlock>
+                <TextBox x:Name="popupImeTextBox" TextChanged="popupImeTextBox_TextChanged"></TextBox>
+                <TextBlock Text="Prezime:" Margin="0 0 0 0"></TextBlock>
+                <TextBox x:Name="popupPrezimeTextBox" TextChanged="popupPrezimeTextBox_TextChanged"></TextBox>
+                <TextBlock Text="Datum pocetka rada:" Margin="0 0 0 0"></TextBlock>
+                <TextBox x:Name="popupDatumTextBox" TextChanged="popupDatumTextBox_TextChanged"></TextBox>
+                <TextBlock Text="JMBG:" Margin="0 0 0 0"></TextBlock>
+                <TextBox x:Name="popupJmbgTextBox" TextChanged="popupJmbgTextBox_TextChanged"></TextBox>
+                <StackPanel Orientation = "Horizontal" Margin = "0 10 0 0">
+                    <TextBlock Text="Slika:"></TextBlock>
+                    <Button Margin="10 0 0 0" Click="browse_Click" >Browse</Button>
+                </StackPanel>
+            </StackPanel>
+            <Button x:Name="potvrdiNoviRadnikBtn" Click="potvrdiNoviRadnikBtn_Click" IsEnabled="False" Grid.Row="5" Grid.Column="2">Potvrdi</Button>
+        </Grid>
+    </Border>
+</Window>
+

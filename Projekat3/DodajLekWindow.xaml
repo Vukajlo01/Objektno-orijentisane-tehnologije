@@ -1,0 +1,39 @@
+﻿<Window x:Class="Projekat3.DodajLekWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekat3"
+        mc:Ignorable="d"
+        Title="DodajLekWindow" Height="230" Width="300">
+    <Border Padding="5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="5">
+                <TextBlock Text="Naziv:" Margin="0 0 0 0"></TextBlock>
+                <TextBox x:Name="popupNazivTextBox" TextChanged="popupNazivTextBox_TextChanged"></TextBox>
+                <TextBlock Text="Datum proizvodnje:" Margin="0 0 0 0"></TextBlock>
+                <TextBox x:Name="popupDatumProizvodnjeTextBox" TextChanged="popupDatumProizvodnjeTextBox_TextChanged"></TextBox>
+                <TextBlock Text="Datum vazenja:" Margin="0 0 0 0"></TextBlock>
+                <TextBox x:Name="popupDatumVazenjaTextBox" TextChanged="popupDatumVazenjaTextBox_TextChanged"></TextBox>
+                <TextBlock Text="Kolicina:" Margin="0 0 0 0"></TextBlock>
+                <TextBox x:Name="popupKolicinaTextBox" TextChanged="popupKolicinaTextBox_TextChanged"></TextBox>
+            </StackPanel>
+            <Button x:Name="potvrdiNoviLekBtn" Click="potvrdiNoviLekBtn_Click" IsEnabled="False" Grid.Row="5" Grid.Column="1">Potvrdi</Button>
+        </Grid>
+    </Border>
+</Window>
+

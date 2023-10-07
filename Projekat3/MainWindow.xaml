@@ -1,0 +1,159 @@
+﻿<Window x:Class="Projekat3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekat3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="*"></ColumnDefinition>
+            <ColumnDefinition  Width="*"></ColumnDefinition>
+            <ColumnDefinition  Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="5 15 5 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Izaberite apoteku:" Grid.Row="0" FontWeight="Bold" FontStyle="Normal"></TextBlock>
+            <ListBox x:Name="apotekeListBox" SelectionChanged="apotekeListBox_SelectionChanged" Grid.Row="1" ItemsSource="{Binding Apoteke}" DisplayMemberPath="NazivApoteke"></ListBox>
+        </Grid>
+        <StackPanel Grid.Row="2" Grid.Column="0" Grid.RowSpan="3" Margin="5 0 5 0">
+            <TextBlock Text="Informacije o apoteci:" FontWeight="Bold"></TextBlock>
+            <TextBlock Text="Naziv:"></TextBlock>
+            <TextBox x:Name="nazivApotekeTextBox" IsReadOnly="True" Text="{Binding ElementName=apotekeListBox, Path=SelectedItem.NazivApoteke}"></TextBox>
+            <TextBlock Text="Godina osnivanja::"></TextBlock>
+            <TextBox x:Name="godinaOsnivanjaTextBox" IsReadOnly="True" Text="{Binding ElementName=apotekeListBox, Path=SelectedItem.GodinaOsnivanja}"></TextBox>
+            <TextBlock Text="Adresa:"></TextBlock>
+            <TextBox x:Name="adresaTextBox" IsReadOnly="True" Text="{Binding ElementName=apotekeListBox, Path=SelectedItem.Adresa}"></TextBox>
+
+        </StackPanel>
+
+        <Grid Grid.Row="3" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Image x:Name="Image1" Grid.ColumnSpan="4" Margin="22,34,29,-139" Grid.RowSpan="3" Source="{Binding ElementName=apotekeListBox, Path=SelectedItem.PathSlika}"/>
+
+        </Grid>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="5 5 5 0">
+            <TextBlock Text="Pretraga po nazivu:" Grid.Row="2"></TextBlock>
+            <TextBox x:Name="pretragaPoNazivuTextBox" Grid.Row="3" TextChanged="pretragaPoNazivuTextBox_TextChanged"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Grid.Column="1" Margin="5 0 5 5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Lekovi:" Grid.Row="0" FontStyle="Normal" FontWeight="Bold"></TextBlock>
+            <ListBox x:Name="lekoviListBox" SelectionChanged="lekoviListBox_SelectionChanged" Grid.Row="1" ItemsSource="{Binding Lekovi}" DisplayMemberPath="Naziv"></ListBox>
+        </Grid>
+        <StackPanel Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Margin="5 0 5 0">
+            <TextBlock Text="Informacije o lekovima:" FontWeight="Bold"></TextBlock>
+            <TextBlock Text="Naziv:"></TextBlock>
+            <TextBox Name="nazivLekaTextBox" IsReadOnly="True" Text="{Binding ElementName=lekoviListBox, Path=SelectedItem.Naziv}"></TextBox>
+            <TextBlock Text="Datum proizvodnje:"></TextBlock>
+            <TextBox Name="datumProizvodnjeTextBox" IsReadOnly="True" Text="{Binding ElementName=lekoviListBox, Path=SelectedItem.DatumProizvodnje}"></TextBox>
+            <TextBlock Text="Datum vazenja:"></TextBlock>
+            <TextBox Name="datumVazenjaTextBox" IsReadOnly="True" Text="{Binding ElementName=lekoviListBox, Path=SelectedItem.DatumVazenja}"></TextBox>
+            <TextBlock Text="Kolicina:"></TextBlock>
+            <TextBox Name="kolicinaTextBox" IsReadOnly="True" Text="{Binding ElementName=lekoviListBox, Path=SelectedItem.Kolicina}"></TextBox>
+            <Grid Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Button Name="izmeniLekBtn" Grid.Column="1" Margin="2 0 2 0" IsEnabled="False" Click="izmeniLekBtn_Click">Izmeni</Button>
+                <Button Name="dodajLekBtn" Grid.Column="0" Click="dodajLekBtn_Click" IsEnabled="False"  Margin="0 0 2 0">Dodaj</Button>
+                <Button Name="obrisiLekBtn" Grid.Column="2" IsEnabled="False" Click="obrisiLekBtn_Click" Margin="2 0 2 0">Obrisi</Button>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="2" Margin="5 5 5 0">
+            <TextBlock Text="Pretraga po imenu i prezimenu:"></TextBlock>
+            <TextBox x:Name="pretragaPoImenuIPrezimenuTextBox" TextChanged="pretragaPoImenuIPrezimenuTextBox_TextChanged"></TextBox>
+        </StackPanel>
+        <Grid Grid.Row="1" Grid.Column="2" Margin="5 0 5 5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Radnici:" Grid.Row="0" FontWeight="Bold"/>
+            <ListBox x:Name="radniciListBox" SelectionChanged="radniciListBox_SelectionChanged" Grid.Row="1" ItemsSource="{Binding Radnici}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <Run Text="{Binding Path=Ime}" />
+                            <Run Text="{Binding Path=Prezime}" />
+                        </TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <StackPanel Grid.Row="2" Grid.Column="2" Grid.RowSpan="3" Margin="5 0 5 0">
+            <TextBlock Text="Informacije o radnicima:" FontWeight="Bold"></TextBlock>
+            <TextBlock Text="Ime:"></TextBlock>
+            <TextBox x:Name="imeTextBox" IsReadOnly="True" Text="{Binding ElementName=radniciListBox, Path=SelectedItem.Ime}"></TextBox>
+            <TextBlock Text="Prezime:"></TextBlock>
+            <TextBox x:Name="prezimeTextBox" IsReadOnly="True" Text="{Binding ElementName=radniciListBox, Path=SelectedItem.Prezime}"></TextBox>
+            <TextBlock Text="Datum pocetka rada:"></TextBlock>
+            <TextBox x:Name="datumPocetkaRadaTextBox" IsReadOnly="True" Text="{Binding ElementName=radniciListBox, Path=SelectedItem.Datum}"></TextBox>
+            <TextBlock Text="JMBG:"></TextBlock>
+            <TextBox x:Name="jmbgTextBox" IsReadOnly="True" Text="{Binding ElementName=radniciListBox, Path=SelectedItem.Jmbg}"></TextBox>
+            <Grid Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Button Name="izmeniRadnikBtn" Grid.Column="1" Margin="2 0 2 0" IsEnabled="False" Click="izmeniRadnikBtn_Click">Izmeni</Button>
+                <Button Name="dodajRadnikBtn" Grid.Column="0" IsEnabled="False" Margin="0 0 2 0" Click="dodajRadnikBtn_Click">Dodaj</Button>
+                <Button Name="obirisiRadnikBtn" Grid.Column="2" IsEnabled="False" Click="obirisiRadnikBtn_Click" Margin="2 0 2 0">Obrisi</Button>
+            </Grid>
+            
+        </StackPanel>
+        <Grid Grid.Row="3" Grid.Column="2" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Image x:Name="Image2" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Source="{Binding ElementName=radniciListBox, Path=SelectedItem.PathSlika}"></Image>
+        </Grid>
+    </Grid>
+</Window>

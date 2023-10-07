@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Slike\**" />
+    <EmbeddedResource Remove="Slike\**" />
+    <None Remove="Slike\**" />
+    <Page Remove="Slike\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="BENU.jpg" />
+    <None Remove="SlikeApoteke\BENU.png" />
+    <None Remove="SlikeApoteke\CRVENA.png" />
+    <None Remove="SlikeApoteke\MONOFARM.png" />
+    <None Remove="SlikeApoteke\PHARMACITY.jpg" />
+    <None Remove="SlikeApoteke\VELIKA.jpg" />
+    <None Remove="SlikeRadnici\Cool.jpg" />
+    <None Remove="SlikeRadnici\Devil.png" />
+    <None Remove="SlikeRadnici\Exploader.jpg" />
+    <None Remove="SlikeRadnici\Headphones.png" />
+    <None Remove="SlikeRadnici\Hearts.png" />
+    <None Remove="SlikeRadnici\Kisser.png" />
+    <None Remove="SlikeRadnici\Mad.png" />
+    <None Remove="SlikeRadnici\Melting.jpg" />
+    <None Remove="SlikeRadnici\NerdFace.png" />
+    <None Remove="SlikeRadnici\Neutral.png" />
+    <None Remove="SlikeRadnici\Puke.png" />
+    <None Remove="SlikeRadnici\Thinker.jpg" />
+    <None Remove="SlikeRadnici\TongueOut.png" />
+    <None Remove="SlikeRadnici\Winker.png" />
+    <None Remove="SlikeRadnici\XD.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="SlikeApoteke\BENU.png" />
+    <Resource Include="SlikeApoteke\CRVENA.png" />
+    <Resource Include="SlikeApoteke\MONOFARM.png" />
+    <Resource Include="SlikeApoteke\PHARMACITY.jpg" />
+    <Resource Include="SlikeApoteke\VELIKA.jpg" />
+    <Resource Include="SlikeRadnici\Cool.jpg" />
+    <Resource Include="SlikeRadnici\Devil.png" />
+    <Resource Include="SlikeRadnici\Exploader.jpg" />
+    <Resource Include="SlikeRadnici\Headphones.png" />
+    <Resource Include="SlikeRadnici\Hearts.png" />
+    <Resource Include="SlikeRadnici\Kisser.png" />
+    <Resource Include="SlikeRadnici\Mad.png" />
+    <Resource Include="SlikeRadnici\Melting.jpg" />
+    <Resource Include="SlikeRadnici\NerdFace.png" />
+    <Resource Include="SlikeRadnici\Neutral.png" />
+    <Resource Include="SlikeRadnici\Puke.png" />
+    <Resource Include="SlikeRadnici\Thinker.jpg" />
+    <Resource Include="SlikeRadnici\TongueOut.png" />
+    <Resource Include="SlikeRadnici\Winker.png" />
+    <Resource Include="SlikeRadnici\XD.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DodajRadnikWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="DodajRadnikWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>
